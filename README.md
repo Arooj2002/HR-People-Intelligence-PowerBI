@@ -7,7 +7,7 @@ An end-to-end HR analytics report built in Power BI. It brings together four dat
 ![Power Query](https://img.shields.io/badge/Power%20Query%20(M)-0F9D8A?style=flat)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
 
-![Executive Summary](Screenshots/01_executive_summary.png)
+![Executive Summary](Screenshots/Executive%20Summary.png)
 
 📄 **[View the full report as PDF](HR_Dashboard.pdf)**
 
@@ -28,6 +28,7 @@ An end-to-end HR analytics report built in Power BI. It brings together four dat
 - **Sales, Karachi** is paid about 14% below market (compa-ratio 0.86) and has the highest attrition. "Better compensation" is the top exit reason.
 - **Engineering, Lahore** waits about 40 months for a promotion, compared with about 29 months elsewhere.
 - **89 active employees** are high flight risk, representing about **$1.6M** in annual payroll.
+- **One manager's team** has an eNPS of −75 and the lowest manager score, which flags a team-level issue.
 - **Agency hires** have the lowest 12-month retention of any hiring source.
 - **Late arrivals double during Ramadan**, from about 6% to 12%.
 
@@ -38,17 +39,21 @@ An end-to-end HR analytics report built in Power BI. It brings together four dat
 | Page | What it shows |
 |---|---|
 | **Executive Summary** | KPI cards (headcount, rolling 12M attrition, cost of attrition, eNPS), attrition vs target bar, pay-vs-market gauge, flight-risk distribution and a KPI trend switched by a field parameter |
-| **Attrition & People** | Department attrition ranking, compa-ratio vs attrition scatter with play axis, hire-cohort retention heatmap and workforce breakdowns |
+| **Attrition & People** | Attrition by department with ranking and cost, retention heatmap by hire cohort, pay vs attrition scatter with play axis, manager scorecard and top 10 at-risk employees |
 | **Employee 360** *(drill-through)* | Profile, flight-risk gauge, absence and Bradford factor, pay vs market over time, performance by cycle and job history |
 | **Department tooltip** *(hidden)* | Hover card with headcount, attrition, pay ratio and trend for any department |
 
-| Attrition & People | Employee 360 |
-|---|---|
-| ![](Screenshots/02_attrition_people.png) | ![](Screenshots/03_employee_360.png) |
+### Attrition & People
+![Attrition & People](Screenshots/Attrition%20%26%20People.png)
 
-| Department tooltip | Mobile layout |
-|---|---|
-| ![](Screenshots/04_tooltip.png) | ![](Screenshots/05_mobile.png) |
+### Department tooltip (hover)
+![Department tooltip](Screenshots/Department.png)
+
+### Employee 360 (drill-through)
+![Employee 360](Screenshots/Employee.png)
+
+### Mobile layout
+<img src="Screenshots/Mobile.png" alt="Mobile layout" width="300">
 
 ---
 
@@ -67,7 +72,7 @@ All data is synthetic and generated for this project. It covers January 2024 to 
 
 ## Data model
 
-![Data model](Screenshots/06_data_model.png)
+![Data model](Screenshots/Data%20Model.png)
 
 - **Star schema** with 8 fact tables and 7 dimensions
 - **Role-playing dimension**: Manager, built from the Employee table
@@ -85,11 +90,20 @@ All data is synthetic and generated for this project. It covers January 2024 to 
 
 **DAX**
 - Time intelligence: rolling 12-month attrition, YoY change, fiscal year-to-date cost
-- `CALCULATE`, `USERELATIONSHIP`, `TREATAS`, `CROSSFILTER`, `RANKX`, `LOOKUPVALUE`
 - Hire-cohort retention, Blau diversity index, compa-ratio against market bands
-- Weighted flight-risk score with dynamic segmentation (Low / Medium / High)
+- Weighted flight-risk score (calculated column) with dynamic segmentation (Low / Medium / High)
 - Animated SVG measures for the attrition bar and compa-ratio gauge
 - Dynamic title that reacts to slicer selections
+
+| Category | Functions used |
+|---|---|
+| Filter context | `CALCULATE`, `KEEPFILTERS`, `ALL`, `ALLSELECTED`, `REMOVEFILTERS`, `FILTER` |
+| Relationships | `USERELATIONSHIP`, `TREATAS`, `CROSSFILTER`, `RELATED`, `LOOKUPVALUE` |
+| Time intelligence | `DATESINPERIOD`, `SAMEPERIODLASTYEAR`, `TOTALYTD`, `EOMONTH`, `DATEDIFF` |
+| Aggregation | `SUM`, `SUMX`, `AVERAGE`, `COUNTROWS`, `DISTINCTCOUNT`, `MIN`, `MAX`, `DIVIDE` |
+| Ranking and scope | `RANKX`, `ISINSCOPE`, `SELECTEDVALUE` |
+| Table functions | `ADDCOLUMNS`, `SELECTCOLUMNS`, `GENERATESERIES`, `DATATABLE`, `NAMEOF` (field parameter) |
+| Logic and text | `IF`, `SWITCH`, `FORMAT`, `VAR` / `RETURN` |
 
 **Report design and interactivity**
 - Custom theme (JSON) with a consistent colour palette
