@@ -1,0 +1,188 @@
+createOrReplace
+
+	relationship Date_Payroll
+		fromColumn: Fact_Payroll.PayMonthEnd
+		toColumn: Dim_Date.Date
+
+	relationship Date_Attendance
+		fromColumn: Fact_Attendance.AttendanceDate
+		toColumn: Dim_Date.Date
+
+	relationship Date_JobHistory
+		fromColumn: Fact_Job_History.EventDate
+		toColumn: Dim_Date.Date
+
+	relationship Date_Separation_Exit
+		fromColumn: Fact_Separation.ExitDate
+		toColumn: Dim_Date.Date
+
+	relationship Date_Separation_Hire
+		isActive: false
+		fromColumn: Fact_Separation.HireDate
+		toColumn: Dim_Date.Date
+
+	relationship Date_Performance
+		fromColumn: Fact_Performance.ReviewDate
+		toColumn: Dim_Date.Date
+
+	relationship Date_Recruitment_Apply
+		fromColumn: Fact_Recruitment.ApplicationDate
+		toColumn: Dim_Date.Date
+
+	relationship Date_Recruitment_Join
+		isActive: false
+		fromColumn: Fact_Recruitment.JoinDate
+		toColumn: Dim_Date.Date
+
+	relationship Date_Training_Enroll
+		fromColumn: Fact_Training.EnrollDate
+		toColumn: Dim_Date.Date
+
+	relationship Date_Training_Complete
+		isActive: false
+		fromColumn: Fact_Training.CompletionDate
+		toColumn: Dim_Date.Date
+
+	relationship Date_Engagement
+		fromColumn: Fact_Engagement.SurveyDate
+		toColumn: Dim_Date.Date
+
+	relationship Employee_Payroll
+		fromColumn: Fact_Payroll.EmployeeKey
+		toColumn: Dim_Employee.EmployeeKey
+
+	relationship Employee_Attendance
+		fromColumn: Fact_Attendance.EmployeeKey
+		toColumn: Dim_Employee.EmployeeKey
+
+	relationship Employee_JobHistory
+		fromColumn: Fact_Job_History.EmployeeKey
+		toColumn: Dim_Employee.EmployeeKey
+
+	relationship Employee_Separation
+		fromColumn: Fact_Separation.EmployeeKey
+		toColumn: Dim_Employee.EmployeeKey
+
+	relationship Employee_Performance
+		fromColumn: Fact_Performance.EmployeeKey
+		toColumn: Dim_Employee.EmployeeKey
+
+	relationship Employee_Training
+		fromColumn: Fact_Training.EmployeeKey
+		toColumn: Dim_Employee.EmployeeKey
+
+	relationship Employee_Engagement
+		fromColumn: Fact_Engagement.EmployeeKey
+		toColumn: Dim_Employee.EmployeeKey
+
+	relationship Department_Payroll
+		fromColumn: Fact_Payroll.DepartmentKey
+		toColumn: Dim_Department.DepartmentKey
+
+	relationship Department_Attendance
+		fromColumn: Fact_Attendance.DepartmentKey
+		toColumn: Dim_Department.DepartmentKey
+
+	relationship Department_JobHistory
+		fromColumn: Fact_Job_History.DepartmentKey
+		toColumn: Dim_Department.DepartmentKey
+
+	relationship Department_Separation
+		fromColumn: Fact_Separation.DepartmentKey
+		toColumn: Dim_Department.DepartmentKey
+
+	relationship Department_Performance
+		fromColumn: Fact_Performance.DepartmentKey
+		toColumn: Dim_Department.DepartmentKey
+
+	relationship Department_Recruitment
+		fromColumn: Fact_Recruitment.DepartmentKey
+		toColumn: Dim_Department.DepartmentKey
+
+	relationship Department_Training
+		fromColumn: Fact_Training.DepartmentKey
+		toColumn: Dim_Department.DepartmentKey
+
+	relationship Department_Engagement
+		fromColumn: Fact_Engagement.DepartmentKey
+		toColumn: Dim_Department.DepartmentKey
+
+	relationship Location_Payroll
+		fromColumn: Fact_Payroll.LocationKey
+		toColumn: Dim_Location.LocationKey
+
+	relationship Location_Attendance
+		fromColumn: Fact_Attendance.LocationKey
+		toColumn: Dim_Location.LocationKey
+
+	relationship Location_JobHistory
+		fromColumn: Fact_Job_History.LocationKey
+		toColumn: Dim_Location.LocationKey
+
+	relationship Location_Separation
+		fromColumn: Fact_Separation.LocationKey
+		toColumn: Dim_Location.LocationKey
+
+	relationship Location_Performance
+		fromColumn: Fact_Performance.LocationKey
+		toColumn: Dim_Location.LocationKey
+
+	relationship Location_Recruitment
+		fromColumn: Fact_Recruitment.LocationKey
+		toColumn: Dim_Location.LocationKey
+
+	relationship Location_Training
+		fromColumn: Fact_Training.LocationKey
+		toColumn: Dim_Location.LocationKey
+
+	relationship Location_Engagement
+		fromColumn: Fact_Engagement.LocationKey
+		toColumn: Dim_Location.LocationKey
+
+	relationship Designation_Payroll
+		fromColumn: Fact_Payroll.DesignationKey
+		toColumn: Dim_Designation.DesignationKey
+
+	relationship Designation_JobHistory
+		fromColumn: Fact_Job_History.DesignationKey
+		toColumn: Dim_Designation.DesignationKey
+
+	relationship Designation_Separation
+		fromColumn: Fact_Separation.DesignationKey
+		toColumn: Dim_Designation.DesignationKey
+
+	relationship Designation_Performance
+		fromColumn: Fact_Performance.DesignationKey
+		toColumn: Dim_Designation.DesignationKey
+
+	relationship Designation_Recruitment
+		fromColumn: Fact_Recruitment.DesignationKey
+		toColumn: Dim_Designation.DesignationKey
+
+	relationship Designation_Training
+		fromColumn: Fact_Training.DesignationKey
+		toColumn: Dim_Designation.DesignationKey
+
+	relationship Manager_Payroll
+		fromColumn: Fact_Payroll.ManagerKey
+		toColumn: Dim_Manager.ManagerKey
+
+	relationship Manager_Attendance
+		fromColumn: Fact_Attendance.ManagerKey
+		toColumn: Dim_Manager.ManagerKey
+
+	relationship Manager_Separation
+		fromColumn: Fact_Separation.ManagerKey
+		toColumn: Dim_Manager.ManagerKey
+
+	relationship Manager_Performance
+		fromColumn: Fact_Performance.ManagerKey
+		toColumn: Dim_Manager.ManagerKey
+
+	relationship Manager_Engagement
+		fromColumn: Fact_Engagement.ManagerKey
+		toColumn: Dim_Manager.ManagerKey
+
+	relationship Course_Training
+		fromColumn: Fact_Training.CourseID
+		toColumn: Dim_Course.CourseID

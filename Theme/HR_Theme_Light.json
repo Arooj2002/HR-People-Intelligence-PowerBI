@@ -1,0 +1,35 @@
+{
+  "name": "HR People Intelligence - Light",
+  "dataColors": ["#1F3A5F", "#0F9D8A", "#E6A028", "#D64545", "#6C8EBF", "#2E8B57", "#8E6BBF", "#9AA5B1"],
+  "background": "#FFFFFF",
+  "foreground": "#1F2A37",
+  "tableAccent": "#0F9D8A",
+  "good": "#2E8B57",
+  "neutral": "#E6A028",
+  "bad": "#D64545",
+  "maximum": "#1F3A5F",
+  "center": "#E6A028",
+  "minimum": "#F3F6FA",
+  "textClasses": {
+    "label":   { "fontFace": "Segoe UI", "fontSize": 10, "color": "#4B5563" },
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 26, "color": "#1F2A37" },
+    "title":   { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#1F2A37" },
+    "header":  { "fontFace": "Segoe UI Semibold", "fontSize": 14, "color": "#1F2A37" }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [{ "show": true, "color": { "solid": { "color": "#FFFFFF" } }, "transparency": 0 }],
+        "border": [{ "show": true, "color": { "solid": { "color": "#E5E7EB" } }, "radius": 10 }],
+        "dropShadow": [{ "show": false }],
+        "padding": [{ "top": 10, "bottom": 10, "left": 12, "right": 12 }]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#F3F6FA" } }, "transparency": 0 }],
+        "outspace": [{ "color": { "solid": { "color": "#F3F6FA" } } }]
+      }
+    }
+  }
+}
